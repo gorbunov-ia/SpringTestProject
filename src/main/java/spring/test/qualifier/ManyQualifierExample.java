@@ -7,7 +7,7 @@ public class ManyQualifierExample {
     public static void main(String[] args) {
         final AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
 
-        final ListOfA bean = context.getBean(ListOfA.class);
+        final ListOfEmptyClass bean = context.getBean(ListOfEmptyClass.class);
         System.out.println(bean);
     }
 

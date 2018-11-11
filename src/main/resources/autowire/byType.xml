@@ -4,8 +4,8 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="a" class="spring.test.autowire.A"/>
+    <bean id="emptyClass" class="spring.test.entity.EmptyClass"/>
 
-    <bean id="f" class="spring.test.autowire.C" autowire="byType"/>
+    <bean class="spring.test.entity.ClassWithSetter" autowire="byType"/>
 
 </beans>
