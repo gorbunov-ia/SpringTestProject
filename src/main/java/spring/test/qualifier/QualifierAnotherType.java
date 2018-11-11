@@ -4,14 +4,15 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import spring.test.entity.ClassWithSetter;
 import spring.test.entity.EmptyClass;
 
-public class ManyQualifierExample {
+public class QualifierAnotherType {
 
     public static void main(String[] args) {
-        final AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
+        final AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(QualifierAnotherType.Config.class);
 
-        final ListOfEmptyClass bean = context.getBean(ListOfEmptyClass.class);
+        final ClassWithQualifier bean = context.getBean(ClassWithQualifier.class);
         System.out.println(bean);
     }
 
@@ -19,26 +20,24 @@ public class ManyQualifierExample {
     static class Config {
 
         @Bean
-        @Qualifier("groupA")
         public EmptyClass beanA() {
             return new EmptyClass();
         }
 
         @Bean
-        @Qualifier("groupA")
         public EmptyClass beanB() {
             return new EmptyClass();
         }
 
         @Bean
-        @Qualifier("groupC")
-        public EmptyClass beanC() {
-            return new EmptyClass();
+        @Qualifier("beanAnotherType")
+        public ClassWithSetter classWithSetter() {
+            return new ClassWithSetter();
         }
 
         @Bean
-        public ListOfEmptyClass beanList() {
-            return new ListOfEmptyClass();
+        public ClassWithQualifier classWithQualifier() {
+            return new ClassWithQualifier();
         }
 
     }
