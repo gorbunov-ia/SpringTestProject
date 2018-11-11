@@ -3,6 +3,7 @@ package spring.test.autowire;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import spring.test.entity.ClassWithResource;
 import spring.test.entity.EmptyClass;
 
 public class AutowireByNameAnnotationExample {
@@ -12,6 +13,9 @@ public class AutowireByNameAnnotationExample {
 
         System.out.println(context.getBean(ClassWithAutowired.class));
 
+        //Spring required this approach
+        //Inject by name with @Resource annotation
+        //Limits: inject into constructor or method with few parameters
         System.out.println(context.getBean(ClassWithResource.class));
     }
 

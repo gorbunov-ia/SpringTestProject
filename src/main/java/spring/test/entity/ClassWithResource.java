@@ -1,6 +1,4 @@
-package spring.test.autowire;
-
-import spring.test.entity.EmptyClass;
+package spring.test.entity;
 
 import javax.annotation.Resource;
 
